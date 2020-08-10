@@ -1,21 +1,31 @@
 const content = document.getElementById('content');
-const tap = document.getElementById('tap');
+const footer = document.getElementsByTagName('footer')[0];
+
+const createTap = function () {
+  const tap = document.createElement('h5');
+  const tapLabel = document.createTextNode('Ketuk untuk melanjutkan');
+  tap.appendChild(tapLabel);
+  tap.classList.add('animate__animated', 'animate__pulse', 'text-white');
+  tap.setAttribute('id', 'tap');
+  content.insertBefore(tap, footer);
+}
 
 window.addEventListener('load', function () {
   setTimeout(function () {
-    tap.classList.remove('d-none');
+    createTap();
     document.body.addEventListener('click', function () {
-      slideDua();
+      _slideDua();
     })
   }, 1000);
 });
 
-const slideDua = function () {
+const _slideDua = function () {
   const img = document.getElementsByTagName('img')[0];
+  const tap = document.getElementById('tap');
   setTimeout(function () {
     img.classList.replace('animate__tada', 'animate__rotateOut');
     img.classList.remove('animate__fast', 'animate__infinite');
-    tap.classList.add('d-none');
+    tap.classList.toggle('d-none');
     setTimeout(function () {
       img.remove();
     }, 1000);
@@ -23,30 +33,37 @@ const slideDua = function () {
   const slideDua = document.getElementById('slideDua');
   slideDua.classList.toggle('d-none');
   setTimeout(function () {
-    tap.classList.remove('d-none');
+    tap.classList.toggle('d-none');
     document.body.addEventListener('click', function () {
-      slideTiga();
+      _slideTiga();
     })
-  }, 5000);
+  }, 1000);
 }
 
-const slideTiga = function () {
+const _slideTiga = function () {
   const slideDua = document.getElementById('slideDua');
-  setTimeout(function(){
+  const tap = document.getElementById('tap');
+  setTimeout(function () {
     slideDua.classList.replace('animate__zoomInDown', 'animate__fadeOutLeft');
     slideDua.classList.remove('animate__delay-2s', 'animate__slow');
-    tap.classList.add('d-none');
+    tap.classList.toggle('d-none');
     setTimeout(function () {
       slideDua.remove();
     }, 1000);
   }, 1000);
   const slideTiga = document.getElementById('slideTiga');
   slideTiga.classList.toggle('d-none');
+  setTimeout(function () {
+    tap.classList.toggle('d-none');
+    document.body.addEventListener('click', function () {
+      alert('ok');
+    })
+  }, 1000);
 }
 
 
 new TypeIt("#teks1", {
-  strings: ["Assalamualaikum Wr. Wb", " ", "Saya Adam Mukti Wibisono pada hari ini Minggu, 23 Agustus 2020 dengan sepenuh hati mengucapkan", " ", "<b>Selamat Ulang Tahun Yang ke - 21</b>", " ", "Kepada Irna Imroatun, semoga kamu panjang umur, dan bahagia selalu. Aamiin.", "Sekian surat pernyataan dari saya", " ", "Wassalamualakaikum Wr. Wb", " ", "- Adam Mukti, orang ganteng :)"],
+  strings: ["Assalamualaikum Wr. Wb", " ", "Saya Adam Mukti Wibisono pada hari ini Minggu, 23 Agustus 2020 dengan sepenuh hati mengucapkan", " ", "<b>Selamat Ulang Tahun Yang ke - 21</b>", " ", "Kepada Irna Imroatun, semoga kamu panjang umur, dan bahagia selalu. Aamiin.", "Sekian surat pernyataan dari saya", " ", "Wassalamualakaikum Wr. Wb", " ", "- Adam Mukti, Mas ganteng :)"],
   startDelay: 4000,
   speed: 5,
   loop: false,
@@ -54,7 +71,7 @@ new TypeIt("#teks1", {
 }).go();
 
 new TypeIt("#teks2", {
-  strings: ["Haii!!", " ", "Saya Adam Mukti Wibisono pada hari ini Minggu, 23 Agustus 2020 dengan sepenuh hati mengucapkan", " ", "<b>Selamat Ulang Tahun Yang ke - 21</b>", " ", "Kepada Irna Imroatun, semoga kamu panjang umur, dan bahagia selalu. Aamiin.", "Sekian surat pernyataan dari saya", " ", "Wassalamualakaikum Wr. Wb", " ", "- Adam Mukti, orang ganteng :)"],
+  strings: ["Haii cabi!!", "Happy Birthday ya..", "Semoga panjang umur dan bahagia selalu deh pokoknya", "Wish you all the best ya cabiii "," ", "Ciie udah 21 tahun, padahal baru aja beberapa hari kemarin umur kita sama hehe, tapi gapapa semoga di umur yang sekarang kamu bisa jadi pribadi yang lebih baik lagi, lebih rajin, lebih sholehah, dan lebih berbakti sama orang tua.", "Maaf ya aku gabisa kasih surprise yang romantis, bawain kamu bunga - bunga, kue dan sebagainya. Cuma ini yang bisa aku kasih ke kamu, aku harap kamu suka ya :)", "Sekali lagi, Selamat Ulang Tahun ya. Semoga semua impian, keinginan, dan harapan kamu bisa tercapai, Aamiin."],
   startDelay: 4000,
   speed: 5,
   loop: false,
