@@ -17,18 +17,42 @@
 
 <body>
   <div class="bg" id="content">
-    <img id="slideSatu" src="Assets/img1.png" class="img animate__animated animate__tada animate__fast animate__infinite">
-    <div id="slideDua" class="d-none paper animate__zoomInDown animate__animated animate__delay-2s animate__slow">
+   
+    <img id="slideSatu" src="Assets/img1.png"
+      class="img animate__animated animate__tada animate__fast animate__infinite">
+
+    <div id="slideDua" class="slides d-none paper animate__zoomInDown animate__animated animate__delay-2s animate__slow">
       <div class="paper-content">
         <p id="teks1" class="teks"></p>
       </div>
     </div>
 
-    <div id="slideTiga" class="d-none paper animate__fadeInRight animate__animated animate__delay-2s animate__slow">
+    <div id="slideTiga" class="slides d-none paper animate__fadeInRight animate__animated animate__delay-2s animate__slow">
       <div class="paper-content">
         <p id="teks2" class="teks"></p>
       </div>
     </div>
+
+    <div class="kotak d-none slides" id="slideEmpat">
+      <div class="row">
+        <div class="col-sm mt-5">
+          <h5>Kamu suka nggak?</h5>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-sm-4 offset-sm-2">
+          <button class="btn btn-outline-danger"> Aku gak suka </button>
+        </div>
+        <div class="col-sm-4">
+          <button class="btn btn-outline-info"> Suka banget fix! </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="slideLima" class="d-none slides ">
+      <i class="fas fa-heart fa-7x text-danger animate__heartBeat animate__animated animate__infinite"></i>
+    </div>
+
 
     <!-- Footer -->
     <footer class="page-footer font-small blue fixed-bottom">

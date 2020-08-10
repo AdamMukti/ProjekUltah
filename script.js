@@ -22,35 +22,35 @@ window.addEventListener('load', function () {
 const _slideDua = function () {
   const img = document.getElementsByTagName('img')[0];
   const tap = document.getElementById('tap');
+
   setTimeout(function () {
     img.classList.replace('animate__tada', 'animate__rotateOut');
     img.classList.remove('animate__fast', 'animate__infinite');
     tap.classList.toggle('d-none');
     setTimeout(function () {
-      img.remove();
+      img.remove()
     }, 1000);
   }, 1000);
+
   const slideDua = document.getElementById('slideDua');
   slideDua.classList.toggle('d-none');
+
   setTimeout(function () {
     tap.classList.toggle('d-none');
     document.body.addEventListener('click', function () {
-      _slideTiga();
+      setTimeout(function () {
+        slideDua.classList.replace('animate__zoomInDown', 'animate__rollOut');
+        slideDua.classList.remove('animate__delay-2s', 'animate__slow');
+        tap.classList.toggle('d-none');
+      }, 2000);
+
+      _slideTiga()
     })
-  }, 1000);
+  }, 1000); //40
 }
 
 const _slideTiga = function () {
-  const slideDua = document.getElementById('slideDua');
   const tap = document.getElementById('tap');
-  setTimeout(function () {
-    slideDua.classList.replace('animate__zoomInDown', 'animate__fadeOutLeft');
-    slideDua.classList.remove('animate__delay-2s', 'animate__slow');
-    tap.classList.toggle('d-none');
-    setTimeout(function () {
-      slideDua.remove();
-    }, 1000);
-  }, 1000);
   const slideTiga = document.getElementById('slideTiga');
   slideTiga.classList.toggle('d-none');
   setTimeout(function () {
@@ -71,7 +71,7 @@ new TypeIt("#teks1", {
 }).go();
 
 new TypeIt("#teks2", {
-  strings: ["Haii cabi!!", "Happy Birthday ya..", "Semoga panjang umur dan bahagia selalu deh pokoknya", "Wish you all the best ya cabiii "," ", "Ciie udah 21 tahun, padahal baru aja beberapa hari kemarin umur kita sama hehe, tapi gapapa semoga di umur yang sekarang kamu bisa jadi pribadi yang lebih baik lagi, lebih rajin, lebih sholehah, dan lebih berbakti sama orang tua.", "Maaf ya aku gabisa kasih surprise yang romantis, bawain kamu bunga - bunga, kue dan sebagainya. Cuma ini yang bisa aku kasih ke kamu, aku harap kamu suka ya :)", "Sekali lagi, Selamat Ulang Tahun ya. Semoga semua impian, keinginan, dan harapan kamu bisa tercapai, Aamiin."],
+  strings: ["Haii cabi!!", "Happy Birthday ya..", "Semoga panjang umur dan bahagia selalu deh pokoknya", "Wish you all the best ya cabiii ", " ", "Ciie udah 21 tahun, padahal baru aja beberapa hari kemarin umur kita sama hehe, tapi gapapa semoga di umur yang sekarang kamu bisa jadi pribadi yang lebih baik lagi, lebih rajin, lebih sholehah, dan lebih berbakti sama orang tua.", "Maaf ya aku gabisa kasih surprise yang romantis. Cuma ini yang bisa aku kasih ke kamu, aku harap kamu suka ya :)", "Sekali lagi, Selamat Ulang Tahun ya. Semoga semua impian, keinginan, dan harapan kamu bisa tercapai, Aamiin."],
   startDelay: 4000,
   speed: 5,
   loop: false,
