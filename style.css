@@ -45,7 +45,7 @@ html {
   width: 90%;
   max-width: 800px;
   min-width: 300px;
-  height: 480px;
+  height: 540px;
   margin: 50px auto;
   display: inline-block;
   vertical-align: middle;
@@ -61,9 +61,9 @@ html {
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 0;
-  width: 60px;
-  background: radial-gradient(#575450 6px, transparent 7px) repeat-y;
+  left: 5px;
+  width: 45px;
+  background: radial-gradient(#616161 6px, transparent 7px) repeat-y;
   background-size: 30px 30px;
   border-right: 3px solid #D44147;
   box-sizing: border-box;
@@ -74,7 +74,7 @@ html {
   top: 30px;
   right: 0;
   bottom: 30px;
-  left: 60px;
+  left: 50px;
   background: linear-gradient(transparent, transparent 28px, #91D1D3 28px);
   background-size: 30px 30px;
 }
@@ -101,12 +101,12 @@ html {
   position: relative;
   width: 90%;
   max-width: 550px;
-  min-width: 250px;
-  height: 200px;
-  margin: 50px auto;
+  min-width: 200px;
+  max-height: 350px;
+  min-height: 100px;
+  top: 300px;
+  padding: 20px 0;
   display: inline-block;
-  vertical-align: middle;
-  line-height: normal;
   background: #fafafa;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, .3);
@@ -115,4 +115,9 @@ html {
 
 .btn {
   border-radius: 40px;
+}
+
+#slideLima {
+  position: relative;
+  top: 300px;
 }
