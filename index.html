@@ -17,23 +17,25 @@
 
 <body>
   <div class="bg" id="content">
-   
-    <img id="slideSatu" src="Assets/img1.png"
-      class="img animate__animated animate__tada animate__fast animate__infinite">
 
-    <div id="slideDua" class="slides d-none paper animate__zoomInDown animate__animated animate__delay-2s animate__slow">
+    <div id="slideSatu" class="animate__animated animate__tada animate__fast animate__infinite">
+      <img src="Assets/img1.png" class="img">
+    </div>
+
+    <div id="slideDua"
+      class="slides d-none paper animate__zoomInDown animate__animated animate__delay-2s animate__slow">
       <div class="paper-content">
         <p id="teks1" class="teks"></p>
       </div>
     </div>
 
-    <div id="slideTiga" class="slides d-none paper animate__fadeInRight animate__animated animate__delay-2s animate__slow">
+    <div id="slideTiga" class="slides d-none paper animate__fadeInRight animate__animated">
       <div class="paper-content">
         <p id="teks2" class="teks"></p>
       </div>
     </div>
 
-    <div class="kotak d-none slides animate__animated animate__fadeInTopLeft" id="slideEmpat">
+    <div class="kotak d-none slides animate__animated animate__fadeInDown animate__delay-2s" id="slideEmpat">
       <div class="row">
         <div class="col-sm mt-1">
           <h5>Kamu suka nggak?</h5>
@@ -49,8 +51,12 @@
       </div>
     </div>
 
-    <div id="slideLima" class="d-none slides">
-      <i class="fas fa-heart fa-7x text-danger animate__heartBeat animate__animated animate__infinite"></i>
+    <div id="slideLima" class="d-none animate__heartBeat animate__animated animate__slow animate__infinite">
+      <i class="fas fa-heart fa-5x text-danger"></i>
+    </div>
+
+    <div id="slideEnam" class="d-none animate__animated animate__fadeIn animate__slower">
+      <img src="Assets/foto.jpeg" class="foto rounded shadow">
       <p id="trims" class="text-muted d-none"></p>
     </div>
 
@@ -59,9 +65,9 @@
     <footer class="page-footer font-small blue fixed-bottom">
 
       <!-- Copyright -->
-      <div class="footer-copyright text-center py-3 text-secondary">Made with <i
-          class="fas fa-heart text-danger animate__pulse animate__animated"></i> by
-        <a href="" class="text-decoration-none text-secondary">Adam Mukti</a>
+      <div class="footer-copyright text-center py-3 text-secondary"><small> Made with <i
+            class="fas fa-heart text-danger animate__pulse animate__animated"></i> by
+          <a href="" class="text-decoration-none text-secondary">Adam Mukti</a></small>
       </div>
       <!-- Copyright -->
 

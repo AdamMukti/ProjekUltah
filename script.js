@@ -2,10 +2,10 @@ const content = document.getElementById('content');
 const footer = document.getElementsByTagName('footer')[0];
 
 const createTap = function () {
-  const tap = document.createElement('h5');
+  const tap = document.createElement('p');
   const tapLabel = document.createTextNode('Ketuk untuk melanjutkan');
   tap.appendChild(tapLabel);
-  tap.classList.add('animate__animated', 'animate__pulse', 'text-white');
+  tap.classList.add('animate__animated', 'animate__pulse', 'text-muted', 'animate__slow', 'animate__infinite');
   tap.setAttribute('id', 'tap');
   content.insertBefore(tap, footer);
 }
@@ -16,28 +16,28 @@ window.addEventListener('load', function () {
     document.body.addEventListener('click', function () {
       _slideDua();
     })
-  }, 1000);
+  }, 3000);
 });
 
 const _slideDua = function () {
-  const img = document.getElementsByTagName('img')[0];
+  const slideSatu = document.getElementById('slideSatu');
   const tap = document.getElementById('tap');
   const slideDua = document.getElementById('slideDua');
 
   setTimeout(function () {
-    img.classList.replace('animate__tada', 'animate__rotateOut');
-    img.classList.remove('animate__fast', 'animate__infinite');
+    slideSatu.classList.replace('animate__tada', 'animate__rotateOut');
+    slideSatu.classList.remove('animate__fast', 'animate__infinite');
     tap.classList.add('d-none');
     setTimeout(function () {
-      img.classList.add('d-none');
+      slideSatu.classList.add('d-none');
     }, 1000);
   }, 1000);
 
+  slideDua.classList.remove('d-none');
   setTimeout(function () {
-    slideDua.classList.remove('d-none');
     tap.classList.remove('d-none');
     document.body.addEventListener('click', function () {
-      slideDua.classList.replace('animate__zoomInDown', 'animate__rollOut');
+      slideDua.classList.replace('animate__zoomInDown', 'animate__fadeOutLeft');
       slideDua.classList.remove('animate__delay-2s', 'animate__slow');
       tap.classList.add('d-none');
       setTimeout(function () {
@@ -45,7 +45,7 @@ const _slideDua = function () {
       }, 1000);
       _slideTiga()
     })
-  }, 1000); //40
+  }, 5000); //40
 }
 
 const _slideTiga = function () {
@@ -55,11 +55,11 @@ const _slideTiga = function () {
   setTimeout(function () {
     slideTiga.classList.remove('d-none');
     document.body.addEventListener('click', function () {
-      slideTiga.classList.replace('animate__fadeInRight', 'animate__fadeOut');
       slideTiga.classList.remove('animate__delay-2s', 'animate__slow');
+      slideTiga.classList.replace('animate__fadeInRight', 'animate__fadeOut');
+      tap.remove();
       setTimeout(function () {
-        // slideTiga.classList.add('d-none');
-        tap.classList.add('d-none');
+        slideTiga.remove();
       }, 1000);
       _slideEmpat();
     })
@@ -83,37 +83,46 @@ const _slideEmpat = function () {
 
   btn[0].addEventListener('click', function () {
     var xy = getRandomPosition(slideEmpat);
-    console.log(xy[0]);
-    slideEmpat.style.top = 0;
     slideEmpat.style.top = xy[0] + 'px';
     // slideEmpat.style.left = xy[1] + 'px';
   });
 
   btnSuka.addEventListener('click', function () {
+    slideEmpat.classList.replace('animate__fadeInDown', 'animate__bounceOut');
+    slideEmpat.classList.remove('animate__delay-2s');
     setTimeout(function () {
-      document.body.addEventListener('click', function () {
-        slideEmpat.classList.replace('animate__fadeInTopLeft', 'animate__fadeOut');
-        setTimeout(function () {
-          slideEmpat.remove()
-        }, 1000);
+      slideEmpat.remove()
+      setTimeout(() => {
         _slideLima();
-      })
-    }, 1000); //40
+      }, 500);
+    }, 1000);
   })
 }
 
-const _slideLima = function() {
+const _slideLima = function () {
   const slideLima = document.getElementById('slideLima');
-  const trims = document.getElementsByTagName('trims');
   slideLima.classList.remove('d-none');
-  
-  setTimeout(() => {
-    slideLima.classList.add('d-none');
-    setTimeout(() => {
-      trims.classList.remove('d-none');
-    }, 1000);
-  }, 2000);
 
+  setTimeout(() => {
+    slideLima.classList.remove('animate__slow');
+    slideLima.classList.replace('animate__heartBeat', 'animate__fadeOut');
+    setTimeout(() => {
+      slideLima.remove();
+      setTimeout(() => {
+        _slideEnam();
+      }, 500);
+    }, 1000);
+  }, 3000);
+}
+
+const _slideEnam = function(){
+  const slideEnam = document.getElementById('slideEnam');
+  slideEnam.classList.remove('d-none');
+  const trims = document.getElementById('trims');
+
+  setTimeout(() => {
+    trims.classList.remove('d-none');
+  }, 1000);
 }
 
 
@@ -134,8 +143,7 @@ new TypeIt("#teks2", {
 
 new TypeIt("#trims", {
   strings: ["Terimakasih."],
-  startDelay: 4000,
-  speed: 105,
+  speed: 150,
   loop: false,
-  waitUntilVisible: true
+  waitUntilVisible: true,
 }).go();
