@@ -18,7 +18,17 @@
 <body>
   <div class="bg" id="content">
 
-    <div id="slideSatu" class="animate__animated animate__tada animate__fast animate__infinite">
+    <div class="container" id="timer">
+      <h5>Countdown to irna's birthday :</h5>
+      <ul>
+        <li><span id="days"></span>days</li>
+        <li><span id="hours"></span>Hours</li>
+        <li><span id="minutes"></span>Minutes</li>
+        <li><span id="seconds"></span>Seconds</li>
+      </ul>
+    </div>
+
+    <div id="slideSatu" class="animate__animated animate__tada animate__fast animate__infinite d-none">
       <img src="Assets/img1.png" class="img">
     </div>
 
@@ -51,16 +61,16 @@
       </div>
     </div>
 
-    <div id="slideLima" class="d-none animate__heartBeat animate__animated animate__slow animate__infinite">
+    <div id="slideLima" class="d-none animate__bounceIn animate__animated animate__slow">
       <i class="fas fa-heart fa-5x text-danger"></i>
     </div>
+    <p id="trims" class="text-muted d-none mt-2"></p>
 
     <div id="slideEnam" class="d-none animate__animated animate__fadeIn animate__slower">
-      <img src="Assets/foto.jpeg" class="foto rounded shadow">
-      <p id="trims" class="text-muted d-none"></p>
+      <img src="Assets/foto.jpeg" class="foto rounded-lg shadow">
     </div>
 
-
+    <p id="tap" class="d-none animate__animated animate__pulse text-muted animate__slow">Ketuk untuk melanjutkan</p>
     <!-- Footer -->
     <footer class="page-footer font-small blue fixed-bottom">
 
