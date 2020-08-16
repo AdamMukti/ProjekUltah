@@ -28,8 +28,14 @@ html {
   display: inline-block;
   margin-left: auto;
   margin-right: auto;
-  padding: 10% 0;
+  position: relative;
+  top: 20px;
+  margin-bottom: 30px;
   width: 350px;
+}
+
+#tap {
+  display: inline-block;
 }
 
 .foto {
@@ -138,7 +144,7 @@ html {
 #trims {
   position: relative;
   top: 300px;
-  color: white;
+  display: inline-block;
 }
 
 h1 {
@@ -150,7 +156,7 @@ li {
   font-size: 16px;
   list-style-type: none;
   position: relative;
-  left: -25px;
+  left: -20px;
   margin-top: 10px;
   padding: 10px;
   text-transform: uppercase;

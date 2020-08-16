@@ -8,9 +8,8 @@ const second = 1000,
   day = hour * 24;
 
   // 'Aug 23, 2020 00:00:00'
-let countDown = new Date().getTime() + 7000,
+let countDown = new Date().getTime() + 5000,
   x = setInterval(function () {
-    console.log(countDown);
     let now = new Date().getTime(),
       distance = countDown - now;
 
@@ -37,7 +36,7 @@ const _slideSatu = function () {
     document.body.addEventListener('click', function () {
       _slideDua();
     })
-  }, 3000);
+  }, 7000);
 };
 
 const _slideDua = function () {
@@ -46,8 +45,7 @@ const _slideDua = function () {
   const slideDua = document.getElementById('slideDua');
 
   setTimeout(function () {
-    slideSatu.classList.replace('animate__tada', 'animate__rotateOut');
-    slideSatu.classList.remove('animate__fast', 'animate__infinite');
+    slideSatu.classList.replace('animate__slideInDown', 'animate__backOutDown');
     tap.classList.add('d-none');
     setTimeout(function () {
       slideSatu.classList.add('d-none');
@@ -79,7 +77,7 @@ const _slideTiga = function () {
     document.body.addEventListener('click', function () {
       slideTiga.classList.remove('animate__delay-2s', 'animate__slow');
       slideTiga.classList.replace('animate__fadeInRight', 'animate__fadeOut');
-      tap.classList.add('d-none');
+      tap.remove();
       setTimeout(function () {
         slideTiga.remove();
         _slideEmpat();
@@ -139,7 +137,7 @@ const _slideLima = function () {
         slideLima.remove();
         _slideEnam();
       }, 1000);
-    }, 5000);
+    }, 6000);
   });
 };
 
@@ -158,6 +156,7 @@ new TypeIt("#teks1", {
 
 new TypeIt("#teks2", {
   strings: ["Haii cabi!!", "Happy Birthday ya..", " ", "Ciie udah 21 tahun, padahal baru aja beberapa hari kemarin umur kita sama hehe, semoga di umur yang sekarang kamu bisa jadi pribadi yang lebih baik lagi, lebih rajin, lebih sholehah, dan lebih berbakti.", "Maaf ya aku gabisa kasih surprise yang romantis. Cuma ini yang bisa aku kasih ke kamu, aku harap kamu suka ya :)", "Sekali lagi, Selamat Ulang Tahun ya. Semoga semua impian, keinginan, dan harapan kamu bisa tercapai, Aamiin."],
+  startDelay: 2000,
   speed: 75,
   waitUntilVisible: true
 }).go();
@@ -165,6 +164,7 @@ new TypeIt("#teks2", {
 
 new TypeIt("#trims", {
   strings: ["Terimakasih."],
+  startDelay: 2000,
   speed: 150,
   loop: false,
   waitUntilVisible: true,
