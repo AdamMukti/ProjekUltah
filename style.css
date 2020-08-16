@@ -9,7 +9,6 @@ html {
 .bg {
   /* Location of the image */
   background-image: url(Assets/38030.jpg);
-  
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -151,9 +150,9 @@ li {
   font-size: 16px;
   list-style-type: none;
   position: relative;
-  left: -18px;
+  left: -25px;
   margin-top: 10px;
-  padding: 15px;
+  padding: 10px;
   text-transform: uppercase;
 }
 
