@@ -7,9 +7,10 @@ const second = 1000,
   hour = minute * 60,
   day = hour * 24;
 
-let countDown = new Date('Aug 23, 2020 00:0:00').getTime(),
+  // 'Aug 23, 2020 00:00:00'
+let countDown = new Date().getTime() + 7000,
   x = setInterval(function () {
-
+    console.log(countDown);
     let now = new Date().getTime(),
       distance = countDown - now;
 
@@ -84,7 +85,7 @@ const _slideTiga = function () {
         _slideEmpat();
       }, 1000);
     })
-  }, 55000); //40
+  }, 42000); //40
 }
 
 function getRandomPosition(element) {
