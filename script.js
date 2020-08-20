@@ -6,8 +6,7 @@ const second = 1000,
   minute = second * 60,
   hour = minute * 60,
   day = hour * 24;
-// Aug 23, 2020 00:00:00
-let countDown = new Date().getTime() + 5000,
+let countDown = new Date('Aug 23, 2020 00:00:00').getTime(),
   x = setInterval(function () {
     let now = new Date().getTime(),
       distance = countDown - now;
@@ -89,7 +88,7 @@ const _slideTiga = function () {
 function getRandomPosition(element) {
   var x = document.body.offsetHeight - element.clientHeight;
   var y = document.body.offsetWidth - element.clientWidth;
-  var randomX = Math.floor(Math.random() * 550);
+  var randomX = Math.floor(Math.random() * 500);
   var randomY = Math.floor(Math.random() * y);
   return [randomX, randomY];
 };
