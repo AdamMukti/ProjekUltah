@@ -1,104 +1,174 @@
-let nama, val;
-const url_string = document.URL;
-const url = new URL(url_string);
-let sender;
+const content = document.getElementById('content');
+const footer = document.getElementsByTagName('footer')[0];
+const timer = document.getElementById('timer');
 
-if (url.searchParams.get('by') != null) {
-  sender = url.searchParams.get('by');
-} else {
-  sender = "Adam";
+const second = 1000,
+  minute = second * 60,
+  hour = minute * 60,
+  day = hour * 24;
+let countDown = new Date('Aug 23, 2020 00:00:00').getTime(),
+  x = setInterval(function () {
+    let now = new Date().getTime(),
+      distance = countDown - now;
+
+    // document.getElementById('days').innerText = Math.floor(distance / (day)),
+    document.getElementById('hours').innerText = Math.floor(distance / (hour)),
+      document.getElementById('minutes').innerText = Math.floor((distance % (hour)) / (minute)),
+      document.getElementById('seconds').innerText = Math.floor((distance % (minute)) / second);
+
+    if (distance < 0) {
+
+      timer.classList.add('d-none');
+      confetti();
+      clearInterval(x);
+      _slideSatu();
+    }
+
+  }, second)
+
+const _slideSatu = function () {
+  const tap = document.getElementById('tap');
+  const slideSatu = document.getElementById('slideSatu');
+  slideSatu.classList.remove('d-none');
+  setTimeout(function () {
+    tap.classList.remove('d-none');
+    document.body.addEventListener('click', function () {
+      _slideDua();
+    })
+  }, 7000);
+};
+
+const _slideDua = function () {
+  const slideSatu = document.getElementById('slideSatu');
+  const tap = document.getElementById('tap');
+  const slideDua = document.getElementById('slideDua');
+
+  setTimeout(function () {
+    slideSatu.classList.replace('animate__slideInDown', 'animate__backOutDown');
+    tap.classList.add('d-none');
+    setTimeout(function () {
+      slideSatu.classList.add('d-none');
+    }, 1000);
+  }, 1000);
+
+  slideDua.classList.remove('d-none');
+  setTimeout(function () {
+    tap.classList.remove('d-none');
+    document.body.addEventListener('click', function () {
+      slideDua.classList.replace('animate__zoomInDown', 'animate__fadeOutLeft');
+      slideDua.classList.remove('animate__delay-2s', 'animate__slow');
+      tap.classList.add('d-none');
+      setTimeout(function () {
+        slideDua.remove();
+        _slideTiga();
+      }, 1000);
+    })
+  }, 40000);
+};
+
+const _slideTiga = function () {
+  const tap = document.getElementById('tap');
+  const slideTiga = document.getElementById('slideTiga');
+
+  slideTiga.classList.remove('d-none');
+  setTimeout(function () {
+    tap.classList.remove('d-none');
+    document.body.addEventListener('click', function () {
+      slideTiga.classList.remove('animate__delay-2s', 'animate__slow');
+      slideTiga.classList.replace('animate__fadeInRight', 'animate__fadeOut');
+      tap.remove();
+      setTimeout(function () {
+        slideTiga.remove();
+        _slideEmpat();
+      }, 1000);
+    })
+  }, 43000);
 }
 
+function getRandomPosition(element) {
+  var x = document.body.offsetHeight - element.clientHeight;
+  var y = document.body.offsetWidth - element.clientWidth;
+  var randomX = Math.floor(Math.random() * 500);
+  var randomY = Math.floor(Math.random() * y);
+  return [randomX, randomY];
+};
 
-document.querySelector(".tombol").addEventListener('click', function () {
-  Swal.fire("Hallo Pacarku", "Aku ada pertanyaan nih buat kamu?", "question").then(function () {
-    Swal.fire("Jawab yang jujur ya!").then(function () {
-      Swal.fire("Awas aja kalo boong!!", "", "error").then(function () {
+const _slideEmpat = function () {
+  const slideEmpat = document.getElementById('slideEmpat');
+  const btn = document.getElementsByTagName('button');
+  slideEmpat.classList.remove('d-none');
 
-        const {
-          value: name
-        } = Swal.fire({
-          title: 'Masukin nama kamu dulu',
-          input: 'text',
-          inputLabel: '',
-          showCancelButton: true,
-          inputValidator: (value) => {
-            if (!value) {
-              return 'Isi dulu dong beb'
-            } else {
-              nama = value;
-            }
-          }
-        }).then(function () {
-          const pertanyaan = Swal.fire({
-            title: `${nama} sayang ga sama ${sender}?`,
-            showDenyButton: true,
-            showCancelButton: false,
-            confirmButtonText: `Sayang`,
-            denyButtonText: `Gak`,
-          }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-              Swal.fire(`${sender} juga sayang banget sama ${nama}`).then(function () {
-                Swal.fire({
-                  title: 'Seberapa sayang emangnya?',
-                  icon: 'question',
-                  input: 'range',
-                  inputLabel: 'Antara 1 - 100 ya',
-                  inputAttributes: {
-                    min: 1,
-                    max: 100,
-                    step: 1
-                  },
-                  inputValue: 50
-                }).then((e) => {
-                  val = e.value
-                  Swal.fire(`Makasih ya udah sayang sama ${sender} ${val}%`).then(function () {
-                    Swal.fire({
-                      title: `Sekarang ${nama} kangen ga sama ${sender}?`,
-                      showDenyButton: true,
-                      showCancelButton: false,
-                      confirmButtonText: `Kangen :(`,
-                      denyButtonText: `Gak!`,
-                    }).then((result) => {
-                      /* Read more about isConfirmed, isDenied below */
-                      if (result.isConfirmed) {
-                        Swal.fire(`Huhu iya ${sender} juga kangen ${nama} :((`).then(function () {
-                          Swal.fire('Terakhir deh sayang').then(function () {
-                            Swal.fire('Coba klik ikon hati di paling bawah dong')
-                          })
-                        })
-                      } else if (result.isDenied) {
-                        Swal.fire('Jahat banget emang ga kangen sama pacar sendiri', '', 'error').then(function () {
-                          Swal.fire('Yaudah deh bye!')
-                        })
-                      }
-                    })
-                  })
-                })
-              })
-            } else if (result.isDenied) {
-              Swal.fire(`Yakin ga suka sama ${sender}?`, '', 'error').then(function () {
-                Swal.fire('Yaudah deh bye!')
-              })
-            }
-          })
-        })
-      });
-    });
+  btn[0].addEventListener('click', function () {
+    var xy = getRandomPosition(slideEmpat);
+    slideEmpat.style.top = xy[0] + 'px';
+    // slideEmpat.style.left = xy[1] + 'px';
   });
-});
+
+  btn[1].addEventListener('click', function () {
+    slideEmpat.classList.replace('animate__fadeInDown', 'animate__bounceOut');
+    slideEmpat.classList.remove('animate__delay-2s');
+    setTimeout(function () {
+      slideEmpat.remove()
+      setTimeout(() => {
+        _slideLima();
+      }, 500);
+    }, 1000);
+  })
+};
+
+const _slideLima = function () {
+  const slideLima = document.getElementById('slideLima');
+  slideLima.classList.remove('d-none');
+  const trims = document.getElementById('trims');
+
+  setTimeout(() => {
+    trims.classList.remove('d-none');
+  }, 1000);
+
+  slideLima.addEventListener('animationend', () => {
+    slideLima.classList.add('animate__delay-3s')
+    slideLima.classList.replace('animate__bounceIn', 'animate__fadeOut');
+    trims.classList.add('animate__animated', 'animate__fadeOut', 'animate__delay-3s');
+    setTimeout(() => {
+      trims.remove();
+      setTimeout(() => {
+        slideLima.remove();
+        _slideEnam();
+      }, 1000);
+    }, 6000);
+  });
+};
+
+const _slideEnam = function () {
+  const slideEnam = document.getElementById('slideEnam');
+  slideEnam.classList.remove('d-none');
+};
 
 
-document.querySelector('.hati').addEventListener('click', function () {
-  confetti();
-  const teks = document.getElementById('teks');
-  const btn = document.querySelector('.tombol');
-  teks.classList.remove('d-none')
-  btn.classList.add('d-none')
-  console.log(teks);
-  console.log(btn);
-})
+new TypeIt("#teks1", {
+  strings: ["Assalamualaikum Wr. Wb", " ", "Saya Adam Mukti Wibisono pada hari ini Minggu, 23 Agustus 2020 dengan sepenuh hati mengucapkan", " ", "<b>Selamat Ulang Tahun Yang ke - 21</b>", " ", "Kepada Irna Imroatun, semoga kamu panjang umur, dan bahagia selalu. Aamiin. Sekian surat pernyataan dari saya", , " ", "Wassalamualakaikum Wr. Wb", " ", "- Adam Mukti, Mas ganteng :)"],
+  startDelay: 4000,
+  speed: 75,
+  waitUntilVisible: true
+}).go();
+
+new TypeIt("#teks2", {
+  strings: ["Haii cabi!!", "Happy Birthday ya..", " ", "Ciie udah 21 tahun, padahal baru aja beberapa hari kemarin umur kita sama hehe, semoga di umur yang sekarang kamu bisa jadi pribadi yang lebih baik lagi, lebih rajin, lebih sholehah, dan lebih berbakti.", "Maaf ya aku gabisa kasih surprise yang romantis. Cuma ini yang bisa aku kasih ke kamu, aku harap kamu suka ya :)", "Sekali lagi, Selamat Ulang Tahun ya. Semoga semua impian, keinginan, dan harapan kamu bisa tercapai, Aamiin."],
+  startDelay: 2000,
+  speed: 75,
+  waitUntilVisible: true
+}).go();
+
+
+new TypeIt("#trims", {
+  strings: ["Terimakasih."],
+  startDelay: 2000,
+  speed: 150,
+  loop: false,
+  waitUntilVisible: true,
+}).go();
+
+
 
 'use strict';
 
