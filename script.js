@@ -146,14 +146,14 @@ const _slideEnam = function () {
 
 
 new TypeIt("#teks1", {
-  strings: ["Assalamualaikum Wr. Wb", " ", "Saya Adam Mukti Wibisono pada hari ini Minggu, 23 Agustus 2020 dengan sepenuh hati mengucapkan", " ", "<b>Selamat Ulang Tahun Yang ke - 21</b>", " ", "Kepada Irna Imroatun, semoga kamu panjang umur, dan bahagia selalu. Aamiin. Sekian surat pernyataan dari saya", , " ", "Wassalamualakaikum Wr. Wb", " ", "- Adam Mukti, Mas ganteng :)"],
+  strings: ["Moshii Moshi><", " ", "Ini dr ksyangan nijarr hihi pibesdey sayaangg", " ", "<b>Sehat" terus yaa</b>", " ", "Makin sayang claraa, jgn bosen" yaa sma i <3.", , " ", "lfyuu🥺💖", " ", "- Clara, ur favgurl ><"],
   startDelay: 4000,
   speed: 75,
   waitUntilVisible: true
 }).go();
 
 new TypeIt("#teks2", {
-  strings: ["Haii cabi!!", "Happy Birthday ya..", " ", "Ciie udah 21 tahun, padahal baru aja beberapa hari kemarin umur kita sama hehe, semoga di umur yang sekarang kamu bisa jadi pribadi yang lebih baik lagi, lebih rajin, lebih sholehah, dan lebih berbakti.", "Maaf ya aku gabisa kasih surprise yang romantis. Cuma ini yang bisa aku kasih ke kamu, aku harap kamu suka ya :)", "Sekali lagi, Selamat Ulang Tahun ya. Semoga semua impian, keinginan, dan harapan kamu bisa tercapai, Aamiin."],
+  strings: ["Hawoo !!", "Happy Birthday ya..", " ", "Ciie udah 16 tahun,semoga di umur yang sekarang nijar bisa jadi lebih baik", "Hbd bby<3. Semoga semua impian, keinginan, dan harapan nijar bisa tercapai. Makasii uda sma claraa teruss, clara syg nijar."],
   startDelay: 2000,
   speed: 75,
   waitUntilVisible: true
@@ -161,7 +161,7 @@ new TypeIt("#teks2", {
 
 
 new TypeIt("#trims", {
-  strings: ["Terimakasih."],
+  strings: ["Arigatoo, Ly bby."],
   startDelay: 2000,
   speed: 150,
   loop: false,
